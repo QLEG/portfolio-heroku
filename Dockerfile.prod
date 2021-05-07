@@ -17,5 +17,5 @@ RUN apt-get update && apt-get install yarn
 WORKDIR /portfolio
 COPY Gemfile Gemfile.lock /portfolio/
 RUN bundle install
-COPY ..
+COPY . .
 CMD ["rails", "s"]
