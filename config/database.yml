@@ -27,14 +27,15 @@ test:
   database: portfolio_test
 
 production:
+  url: <%= ENV['DATABASE_URL']%>
   # <<: *default
   # database: db/production.sqlite3
-  adapter: postgresql
-  encoding: unicode
+  # adapter: postgresql
+  # encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://railsguides.jp/configuring.html#データベース接続をプールする
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: portfolio_production
-  username: portfolio
-  password: <%= ENV['PORTFOLIO_DATABASE_PASSWORD'] %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # database: portfolio_production
+  # username: portfolio
+  # password: <%= ENV['PORTFOLIO_DATABASE_PASSWORD'] %>
   
