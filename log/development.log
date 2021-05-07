@@ -1,0 +1,563 @@
+Started GET "/" for 172.21.0.1 at 2021-05-06 17:15:05 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:76:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (102.3ms)[0m  [1m[35mCREATE DATABASE "portfolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (61.5ms)[0m  [1m[35mCREATE DATABASE "portfolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4373051316486144390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210331162951)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210331162951"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddIndexToUsersEmail (20210401173655)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210401173655"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPasswordDigestToUsers (20210402103213)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210402103213"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRememberDigestToUsers (20210406094757)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210406094757"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToUsers (20210427095624)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT FALSE[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210427095624"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddActivationToUsers (20210428054925)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT FALSE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" timestamp[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210428054925"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddResetToUsers (20210429143848)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" timestamp[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210429143848"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMicroposts (20210430031253)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "microposts" ("id" bigserial primary key, "content" text, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_558c81314b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_microposts_on_user_id" ON "microposts"  ("user_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_microposts_on_user_id_and_created_at" ON "microposts"  ("user_id", "created_at")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210430031253"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20210430082444)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210430082444"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRelationships (20210430115554)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" bigserial primary key, "follower_id" integer, "followed_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_follower_id" ON "relationships"  ("follower_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_followed_id" ON "relationships"  ("followed_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_relationships_on_follower_id_and_followed_id" ON "relationships"  ("follower_id", "followed_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210430115554"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-07 10:57:25.814977"], ["updated_at", "2021-05-07 10:57:25.814977"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4373051316486144390)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.21.0.1 at 2021-05-07 10:57:53 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4091.3ms | Allocations: 2488997)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+ERROR: [Errno 21] Is a directory: 'bin'
+CRITICAL:root:Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+[Webpacker] 
+  Rendered layouts/_rails_default.html.erb (Duration: 912.0ms | Allocations: 21159)
+Completed 500 Internal Server Error in 5064ms (ActiveRecord: 0.0ms | Allocations: 2512587)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /portfolio/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    2:     <%= csp_meta_tag %>
+    3:     <%= stylesheet_link_tag 'application', media: 'all',
+    4:                             'data-turbolinks-track': 'reload' %>
+    5:     <%= javascript_pack_tag 'application', 
+    6:                             'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:5
+app/views/layouts/application.html.erb:5
+Started GET "/" for 172.21.0.1 at 2021-05-07 11:01:59 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 27.2ms | Allocations: 714)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+ERROR: [Errno 21] Is a directory: 'bin'
+CRITICAL:root:Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+[Webpacker] 
+  Rendered layouts/_rails_default.html.erb (Duration: 697.9ms | Allocations: 18595)
+Completed 500 Internal Server Error in 742ms (ActiveRecord: 0.0ms | Allocations: 19803)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /portfolio/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    2:     <%= csp_meta_tag %>
+    3:     <%= stylesheet_link_tag 'application', media: 'all',
+    4:                             'data-turbolinks-track': 'reload' %>
+    5:     <%= javascript_pack_tag 'application', 
+    6:                             'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:5
+app/views/layouts/application.html.erb:5
+Started GET "/" for 172.22.0.1 at 2021-05-07 11:27:34 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1183.1ms | Allocations: 299945)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+ERROR: [Errno 21] Is a directory: 'bin'
+CRITICAL:root:Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+[Webpacker] 
+  Rendered layouts/_rails_default.html.erb (Duration: 1300.6ms | Allocations: 20626)
+Completed 500 Internal Server Error in 2808ms (ActiveRecord: 0.0ms | Allocations: 322997)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /portfolio/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    2:     <%= csp_meta_tag %>
+    3:     <%= stylesheet_link_tag 'application', media: 'all',
+    4:                             'data-turbolinks-track': 'reload' %>
+    5:     <%= javascript_pack_tag 'application', 
+    6:                             'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:5
+app/views/layouts/application.html.erb:5
+Started GET "/" for 172.23.0.1 at 2021-05-07 11:38:20 +0000
+Cannot render console from 172.23.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 915.0ms | Allocations: 299945)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+ERROR: [Errno 21] Is a directory: 'bin'
+CRITICAL:root:Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /portfolio/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+[Webpacker] 
+  Rendered layouts/_rails_default.html.erb (Duration: 817.1ms | Allocations: 20618)
+Completed 500 Internal Server Error in 1767ms (ActiveRecord: 0.0ms | Allocations: 322992)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /portfolio/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    2:     <%= csp_meta_tag %>
+    3:     <%= stylesheet_link_tag 'application', media: 'all',
+    4:                             'data-turbolinks-track': 'reload' %>
+    5:     <%= javascript_pack_tag 'application', 
+    6:                             'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:5
+app/views/layouts/application.html.erb:5
+Started GET "/" for 172.24.0.1 at 2021-05-07 11:48:36 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1398.8ms | Allocations: 312586)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+error Command "webpack" not found.
+
+[Webpacker] yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+  Rendered layouts/_rails_default.html.erb (Duration: 1529.8ms | Allocations: 20963)
+Completed 500 Internal Server Error in 2995ms (ActiveRecord: 0.0ms | Allocations: 336811)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /portfolio/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    2:     <%= csp_meta_tag %>
+    3:     <%= stylesheet_link_tag 'application', media: 'all',
+    4:                             'data-turbolinks-track': 'reload' %>
+    5:     <%= javascript_pack_tag 'application', 
+    6:                             'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:5
+app/views/layouts/application.html.erb:5
+Started GET "/" for 172.24.0.1 at 2021-05-07 11:53:28 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 7058.1ms | Allocations: 2790887)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /portfolio/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+  Rendered layouts/_rails_default.html.erb (Duration: 17551.5ms | Allocations: 22910)
+  Rendered layouts/_shim.html.erb (Duration: 9.0ms | Allocations: 85)
+  Rendered layouts/_header.html.erb (Duration: 13.3ms | Allocations: 407)
+  Rendered layouts/_footer.html.erb (Duration: 7.1ms | Allocations: 180)
+Completed 200 OK in 24690ms (Views: 24666.4ms | ActiveRecord: 0.0ms | Allocations: 2817754)
+
+
+Started GET "/" for 172.24.0.1 at 2021-05-07 11:54:09 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1817.8ms | Allocations: 1174851)
+  Rendered layouts/_rails_default.html.erb (Duration: 166.0ms | Allocations: 19986)
+  Rendered layouts/_shim.html.erb (Duration: 2.2ms | Allocations: 85)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 407)
+  Rendered layouts/_footer.html.erb (Duration: 2.6ms | Allocations: 180)
+Completed 200 OK in 2026ms (Views: 2009.7ms | ActiveRecord: 0.0ms | Allocations: 1198885)
+
+
+Started GET "/login" for 172.24.0.1 at 2021-05-07 11:54:13 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2019.7ms | Allocations: 760437)
+  Rendered layouts/_rails_default.html.erb (Duration: 85.3ms | Allocations: 18448)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 121)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 51)
+Completed 200 OK in 2113ms (Views: 2112.1ms | ActiveRecord: 0.0ms | Allocations: 780614)
+
+
+Started GET "/" for 172.24.0.1 at 2021-05-07 11:54:16 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 12.5ms | Allocations: 700)
+  Rendered layouts/_rails_default.html.erb (Duration: 109.2ms | Allocations: 18306)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 51)
+Completed 200 OK in 130ms (Views: 128.7ms | ActiveRecord: 0.0ms | Allocations: 20162)
+
+
+Started GET "/" for 172.24.0.1 at 2021-05-07 12:30:50 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1756.8ms | Allocations: 1456846)
+  Rendered layouts/_rails_default.html.erb (Duration: 631.0ms | Allocations: 20065)
+  Rendered layouts/_shim.html.erb (Duration: 2.6ms | Allocations: 85)
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 407)
+  Rendered layouts/_footer.html.erb (Duration: 2.5ms | Allocations: 180)
+Completed 200 OK in 2432ms (Views: 2421.4ms | ActiveRecord: 0.0ms | Allocations: 1480957)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]

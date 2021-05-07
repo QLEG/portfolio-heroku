@@ -1,0 +1,28 @@
+version: '3'
+
+volumes: 
+  db-data: #dataをHOST側にマウント
+
+services: 
+  web:
+    build: .
+    ports: 
+      - '3000:3000'
+    volumes: 
+      - '.:/portfolio'
+    environment: 
+      - 'DATABASE_PASSWORD=postgres' #devolpment環境とtest環境のみで使用（必要あれば環境変数keyにして隠す）
+    tty: true
+    stdin_open: true
+    depends_on: 
+      - db
+    links: #ここなんで必要だっけ？
+      - db
+
+  db:
+    image: postgres
+    volumes:
+      - 'db-data:/var/lib/postgresql/data'
+    environment: 
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
